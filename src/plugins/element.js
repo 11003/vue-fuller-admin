@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import {message} from "./message";
 import {
     Dialog,
     MenuItem,
@@ -49,7 +49,6 @@ import {
     Image,
     Progress,
     Loading,
-    Message,
     MessageBox,
     Notification,
     Alert,
@@ -107,7 +106,7 @@ Vue.use(Menu);
 Vue.use(Progress);
 Vue.use(Loading.directive);
 
-Vue.prototype.$message = Message;
+Vue.prototype.$message = message;
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$confirm = MessageBox.confirm;

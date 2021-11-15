@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
-      this.$store.dispatch("AppCloseSideBar", { withoutAnimation: false });
+      this.$store.dispatch("app/AppCloseSideBar", { withoutAnimation: false });
     }
   }
 };

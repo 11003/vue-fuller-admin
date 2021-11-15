@@ -26,7 +26,7 @@ const actions = {
     UserLogin({ commit }, userInfo) {
         const { username, password } = userInfo
         return new Promise((resolve, reject) => {
-            login.post({ username: username.trim(), password: password }).then(response => {
+            login({ username: username.trim(), password: password }).then(response => {
                 const data = response;
                 // data.data.xxx  是tp5返回json的标准格式
                 commit('SET_TOKEN', data.data.token)//存在vueX中
@@ -42,7 +42,7 @@ const actions = {
     // 把获取到的token进行鉴别
     UserGetInfo({ commit, state }) {
         return new Promise((resolve, reject) => {
-            getInfo.post({ token: state.token }).then(response => {
+            getInfo({ token: state.token }).then(response => {
                 const { data } = response
                 if (!data) {
                     reject('Verification failed, please Login again.')
@@ -60,7 +60,7 @@ const actions = {
     // user logout
     UserLogout({ commit, state }) {
         return new Promise((resolve, reject) => {
-            logout.post({token: state.token}).then(() => {
+            logout({token: state.token}).then(() => {
                 commit('SET_TOKEN', '')
                 removeToken()
                 resetRouter()
@@ -80,6 +80,7 @@ const actions = {
     }
 }
 export default {
+    namespaced: true,
     state,
     mutations,
     actions

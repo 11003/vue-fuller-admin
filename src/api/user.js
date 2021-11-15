@@ -1,12 +1,23 @@
-import axios from "@/plugins/axios";
-const { http } = axios;
+import http from "@/plugins/axios";
 
-export const login = {
-  post: params => http.post("/userLogin", params)
-};
-export const logout = {
-  post: params => http.post("/userLogout", params)
-};
-export const getInfo = {
-  post: params => http.post("/getUserInfo", params)
-};
+export function login(data) {
+  return http({
+    url: "/userLogin",
+    method: 'post',
+    data,
+  });
+}
+export function logout(data) {
+  return http({
+    url: "/userLogout",
+    method: 'post',
+    data,
+  });
+}
+export function getInfo(data) {
+  return http({
+    url: "/getUserInfo",
+    method: 'post',
+    data,
+  });
+}

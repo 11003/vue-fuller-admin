@@ -107,7 +107,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true;
-          this.$store.dispatch('UserLogin', this.loginForm).then(res => {
+          this.$store.dispatch('user/UserLogin', this.loginForm).then(res => {
             if(res.code === 20000) {
               this.$router.push({ path: this.redirect || '/' })
               this.$message.success('登录成功！');
